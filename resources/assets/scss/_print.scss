@@ -61,5 +61,61 @@ h3
 	page-break-after: avoid; 
 }
 
+/* I'm not especially happy about all of the !importants below, but
+ * this file seems to get included early in styles.css, and I can't
+ * figure out how to change that.
+ */
+
+/* Hide version picker... */
+.version-picker--mobile li {
+	display: none !important;
+}
+/* ...but show the active version */
+.version-picker--mobile li.current {
+	display: inline !important;
+}
+
+/* Hide various navigation elements, since they're useless on paper */
+#logo-head a:after, #top, #docs, .docs-show, .show-primary-nav, #secondary ul {
+	display: none !important;
+}
+
+/* Rearrange various elements to make them look better */
+#wrapper, #copyright {
+	position: relative !important;
+}
+#primary {
+	position: absolute !important;
+}
+#wrapper {
+	padding-bottom: 0 !important;
+}
+#docs-content {
+	padding-top: 0 !important;
+}
+#tagline {
+	padding-top: 0 !important;
+	text-align: right;
+}
+#tagline h1 {
+	margin-top: .2em !important;
+}
+#header {
+	height: auto !important;
+}
+
+/* Workarounds for browser bugs */
+.version-picker--mobile li.current a {
+	box-shadow: none; /* Otherwise Chrome prints a big black box where the text ought to be */
+}
+#content {
+	/* Without these two rules Firefox only prints page 1 */
+	float: none !important;
+	overflow: visible !important;
+}
+body {
+	overflow: visible !important; /* Why this is set to hidden I have no idea. */
+}
+
 }
 /* @end Print styles */
